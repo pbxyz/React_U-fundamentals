@@ -1,11 +1,44 @@
-import React from 'react'
-import TarjetaFruta from './componentes/TarjetaFruta'
+import React, { Component } from 'react'
+
+const Saludo = (props) => {
+  return (
+    <div>
+      <div>
+        {props.name && <strong>{props.name}</strong>}
+      </div>
+
+      {props.saluda
+        ? (
+          <h1>Hola, tu eres genial 🔮!</h1>
+        )
+        : (
+          <p>
+            Woops, no hay saludo para ti!
+          </p>
+        )
+      }
+    </div>
+  )
+
+  if (props.saluda) {
+    return (
+      <h1>Hola, tu eres genial 🔮!</h1>
+    )
+  }
+
+  return (
+    <p>
+      Woops, no hay saludo para ti!
+    </p>
+  )
+}
 
 const App = () => (
   <div>
-    <TarjetaFruta name={'Sandia'} price={5.00} />
-    <TarjetaFruta name={'Naranja'} price={1.50} />
-    <TarjetaFruta name='Kiwi' price={3.30} />
+    <Saludo
+      saluda
+      name='Ninja PRO'
+    />
   </div>
 )
 
