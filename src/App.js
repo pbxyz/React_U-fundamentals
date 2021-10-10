@@ -1,45 +1,39 @@
 import React, { Component } from 'react'
 
-const Saludo = (props) => {
-  return (
-    <div>
-      <div>
-        {props.name && <strong>{props.name}</strong>}
-      </div>
-
-      {props.saluda
-        ? (
-          <h1>Hola, tu eres genial 🔮!</h1>
-        )
-        : (
-          <p>
-            Woops, no hay saludo para ti!
-          </p>
-        )
-      }
-    </div>
-  )
-
-  if (props.saluda) {
-    return (
-      <h1>Hola, tu eres genial 🔮!</h1>
-    )
+const Title = (props) => {
+  const styles = {
+    background: props.uiColor,
+    padding: '0.3em',
+    color: '#FFF',
+    borderRadius: '0.3em',
+    textAlign: 'center',
+    fontSize: '50px'
   }
-
+  console.log(`hola`)
   return (
-    <p>
-      Woops, no hay saludo para ti!
-    </p>
+    <h1 style={styles}>
+      {props.children}
+    </h1>
   )
 }
 
-const App = () => (
-  <div>
-    <Saludo
-      saluda
-      name='Ninja PRO'
-    />
-  </div>
-)
+
+class App extends Component {
+  state = {
+    uiColor: 'purple'
+  }
+
+  render() {
+    return (
+      <div>
+        <Title
+          uiColor={this.state.uiColor}
+        >
+          Super <em>Ninja</em>
+        </Title>
+      </div>
+    )
+  }
+}
 
 export default App
